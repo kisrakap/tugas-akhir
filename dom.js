@@ -6,24 +6,30 @@ let sama = document.getElementById
 
 
         function kliktombol(x){
-        
             document.getElementById("btn"+x+"D").style.transform="perspective(600px)rotateY(-180deg)";
             document.getElementById("btn"+x+"B").style.transform="perspective(600px)rotateY(0deg)";
-            document.getElementById("btn"+x+"B").disabled="disabled";
 
+            
             // reset moves
              moves++;
-            counter.innerHTML = moves;
+             counter.innerHTML = moves;
 
-           
-            if (moves == 12){
-                menang()
+
+            if (moves == 2){
+                match()
             }
 
-            for(let i = 0 ; i < sama.length ; i++){
-
-            }
-
+        }   
+                moves = 0
+        function match() {
+            
+              if (document.getElementById("btn"+x+"B").src == document.getElementById("btn"+x+1+"B")){
+                document.getElementById("btn"+x+"B").disabled="disabled";
+              }
+              else {
+                document.getElementById("btn"+x+"D").style.transform="perspective(600px)rotateY(-180deg)";
+              }
+              
         }
 
         
