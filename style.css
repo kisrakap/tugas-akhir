@@ -1,0 +1,99 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+#body{
+    background-color: rgba(3, 31, 31, 0.692);
+    padding: 20px
+    ;
+}
+
+
+#bendera{
+    display: inline-block;
+}
+h3{
+    font-size: 40px;
+    text-align: center;
+}
+ 
+#judul{
+    font-family: 'Courier New', Courier, monospace;
+    color: #000;
+    font-size: 50px;
+    align-items: center;
+}
+
+#games {
+    margin:50px;
+    background-color: rgba(22, 161, 161, 0.76);
+    padding: 20px;
+    justify-content: center;
+    display: block;
+}
+
+#games1 {
+    margin:50px;
+    background-color: rgba(22, 161, 161, 0.76);
+    padding: 20px;
+    justify-content: center;
+    display: block;
+}
+#kotak{
+    border: solid 1px blue;
+    width: 1200px;
+    height: 600px;
+}
+
+#tombol{
+    width: 300px;
+    height: 200px;
+    float:left;
+}
+
+
+.depan{
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    transform:perspective(200px)rotateY(0deg);
+    border: solid 1px #000;
+    backface-visibility: hidden;
+    transition: transform 0.5s linear 0s;
+    font-size: 70px;
+    background-image: url(image/asean.png);
+    
+}
+
+
+.btn{
+    width: 300px;
+    height: 0px;
+    position: absolute;
+    border: solid 1px #000;
+    backface-visibility: hidden;
+    font-size: 70px;
+    background-image: url(image/asean.png);
+    
+}
+
+h2{
+    font-size: 70px;
+}
+
+.belakang{
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    transform: perspective(200px)rotateY(180deg);
+    border: solid 1px #000;
+    backface-visibility:hidden;
+    transition: transform 0.5s linear 0s;
+    font-size: 50px;
+    background-image: url(image/flag-1.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%
+}
