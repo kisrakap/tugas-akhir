@@ -1,15 +1,13 @@
 let moves = 0;
 let counter = document.querySelector(".moves");
-let sama = document.getElementById
+var button = document.getElementsByClassName("button")
+let array = [...button];
+
 
     // document.body.onload = init();
-
-
         function kliktombol(x){
             document.getElementById("btn"+x+"D").style.transform="perspective(600px)rotateY(-180deg)";
-            document.getElementById("btn"+x+"B").style.transform="perspective(600px)rotateY(0deg)";
-
-            
+            document.getElementById("btn"+x+"B").style.transform="perspective(600px)rotateY(0deg)";            
             // reset moves
              moves++;
              counter.innerHTML = moves;
