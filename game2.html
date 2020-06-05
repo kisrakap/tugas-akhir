@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="games1">
+    <div class="container">
+        <div id="home" class="flex-center flex-column">
+            <img id="logo" src="image/all.gif" alt="flag Logo">
+            <h2>Welcome! </h2>
+            <a class="btn" href="index.html">Play</a><br><br>
+           
+        </div>
+    </div>
+    <script>
+        // Progressive Web App: Register service worker.
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/chickuiz/service-worker.js').then(function (registration) {
+                    // Registration was successful
+                    console.log('Service worker registration successful with scope: ', registration
+                        .scope);
+                }, function (err) {
+                    // Registration was failed
+                    console.log('Service worker registration failed: ', err);
+                });
+            });
+        }
+    </script>
+
+
+</body>
+</html>
