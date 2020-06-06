@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        div#memory_board{
+            background-color: cadetblue;
+            border: #999 ipx;
+            width: 800px;
+            height: 540px;
+            padding: 20px;
+            margin: 1px auto
+        }
+
+        div#memory_board > div{
+            background: coral  no-repeat;
+            border: #000 1px solid;
+            width: 71px;
+            height: 71px;
+            float: left;
+            margin: 10px;
+            padding: 20px;
+            font-size: 64;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+   <div id="memory_board" class="kotak"></div>
+   <script>
+    var memoryArray = ['A', 'B', 'D', 'c','F', 'G', 'H', 'E','A', 'B', 'D', 'c','F', 'G', 'H', 'E']
+     var memoryValue = []
+     var memorytile = []
+     var tilefliped = 0
+
+ Array.prototype.memorytileshuffle = function(){
+     var i = this.length, j, temp; 
+     while(--i > 0){
+         j = Math.floor(Math.random() * (i + 1)); 
+         temp = this[j]; 
+         this[j] = this[i] ;
+         this[i] = temp;
+     }
+ } 
+   
+     function newboard(){
+         tilefliped = 0;
+         var output = '';
+         memoryArray.memorytileshuffle();
+         for(var i = 0 ; i < memoryArray.length ; i++){
+             output += '<div id = "tile_'+i+'" onclick="memoryfliptile(this,\''+memoryArray[i]+'\')"></div>';
+         }
+         document.getElementById('memory_board').innerHTML = output;
+         setTimeout(newboard, 10000)
+        
+        }
+    
+    
+
+     function memoryfliptile(tile, val){
+         if (tile.innerHTML == "" && memoryValue.length < 2){
+             tile.style.background = 'coral';
+             tile.st
+             tile.innerHTML = val ;
+             if (memoryValue.length == 0){
+                 memoryValue.push(val) ; 
+                 memorytile.push(tile.id)
+             }
+             else if (memoryValue.length == 1){
+                 memoryValue.push(val);
+                 memorytile.push(tile.id);
+
+                 if(memoryValue[0] == memoryValue[1]){
+                     tilefliped+=2 ;
+
+                     // clear array
+                     memoryValue = []
+                     memorytile = []
+
+                     // cek jika semua board cleared 
+                     if (tilefliped == memoryArray.length){
+                         alert("Selamat Kamu berhasil");
+                         document.getElementById('memory_board').innerHTML = newboard();
+                     }
+                 }
+
+                 else {
+                     function flip2back(){
+
+                         var tile_1 = document.getElementById(memorytile[0]);
+                         var tile_2 = document.getElementById(memorytile[1]);
+                         
+                         tile_1.style.background = 'url(tile_bg.jpg no-repeat ';
+                         tile_1.innerHTML = ''
+                         tile_2.style.background = 'url(tile_bg.jpg no-repeat ';
+                         tile_2.innerHTML = ''
+
+                         memoryValue = []
+                         memorytile = []
+                     }
+                      setTimeout(flip2back, 800)   
+                     }
+                 }
+             }
+         }
+     
+
+
+</script>
+<script>newboard();</script>
+</body>
+</html>
