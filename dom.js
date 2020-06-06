@@ -30,8 +30,9 @@ var memoryArray = ['K','I','S','R','A','3','K','I','S','R','A','3']
 
  function memoryfliptile(tile, val){
      if (tile.innerHTML == "" && memoryValue.length < 2){
-         tile.style.background = 'coral';
-         tile.innerHTML = val ;
+        tile.style.background = 'white';
+        tile.innerHTML = val ;
+        
          if (memoryValue.length == 0){
              memoryValue.push(val) ; 
              memorytile.push(tile.id)
