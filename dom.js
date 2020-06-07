@@ -1,95 +1,65 @@
+const cards = document.querySelectorAll('.memory-card');
+let tilefliped = 0
+let hasFlippedCard = false;
+let lockBoard = false;
+let firstCard, secondCard;
 
-var memoryArray = ['K','I','S','R','A','3','K','I','S','R','A','3']
- var memoryValue = []
- var memorytile = []
- var tilefliped = 0
+function flipCard() {
+  if (lockBoard) return;
+  if (this === firstCard) return;
 
-    Array.prototype.memorytileshuffle = function(){
-        var i = this.length, j, temp; 
-    while(--i > 0){
-         j = Math.floor(Math.random() * (i + 1)); 
-        temp = this[j]; 
-        this[j] = this[i] ;
-        this[i] = temp;
-                }
-    } 
+  this.classList.add('flip');
 
- function newboard(){
-     tilefliped = 0;
-     var output = '';
-     memoryArray.memorytileshuffle();
-     for(var i = 0 ; i < memoryArray.length ; i++){
-         output += '<div id = "tile_'+i+'" onclick="memoryfliptile(this,\''+memoryArray[i]+'\')"></div>';
-     }
-     document.getElementById('memory_board').innerHTML = output;
-     setTimeout(newboard, 10000)
-    
-    }
+  if (!hasFlippedCard) {
+    hasFlippedCard = true;
+    firstCard = this;
 
+    return;
+  }
 
+  secondCard = this;
+  checkForMatch();
+}
 
- function memoryfliptile(tile, val){
-     if (tile.innerHTML == "" && memoryValue.length < 2){
-        tile.style.background = 'white';
-        tile.innerHTML = val ;
-        
-         if (memoryValue.length == 0){
-             memoryValue.push(val) ; 
-             memorytile.push(tile.id)
-         }
-         else if (memoryValue.length == 1){
-             memoryValue.push(val);
-             memorytile.push(tile.id);
+function checkForMatch() {
+  let isMatch = firstCard.dataset.type === secondCard.dataset.type;
 
-             if(memoryValue[0] == memoryValue[1]){
-                 tilefliped+=2 ;
+  isMatch ? disableCards() : unflipCards();
+}
 
-                 // clear array
-                 memoryValue = []
-                 memorytile = []
+function disableCards() {
+  firstCard.removeEventListener('click', flipCard);
+  secondCard.removeEventListener('click', flipCard);
+  tilefliped += 2
+  resetBoard();
 
-                 // cek jika semua board cleared 
-                 if (tilefliped == memoryArray.length){
-                    alert("Selamat Kamu berhasil");
-                    document.getElementById('memory_board').innerHTML = newboard();
-                 }
-                 else {
-                    alert("Kamu kalah. lagi ?");
-                    document.getElementById('memory_board').innerHTML = newboard();
-                 }
-             }
+  if (tilefliped === 16){
+    alert("Selamat Kamu berhasil");
+    document.getElementById('memory_game').innerHTML = newBoard();
 
-             else {
-                 function flip2back(){
+  }
+}
 
-                     var tile_1 = document.getElementById(memorytile[0]);
-                     var tile_2 = document.getElementById(memorytile[1]);
-                     
-                     tile_1.style.background = 'url(tile_bg.jpg no-repeat ';
-                     tile_1.innerHTML = ''
-                     tile_2.style.background = 'url(tile_bg.jpg no-repeat ';
-                     tile_2.innerHTML = ''
+function unflipCards() {
+  lockBoard = true;
 
-                     memoryValue = []
-                     memorytile = []
-                 }
-                  setTimeout(flip2back, 800)   
-                 }
-             }
-         }
-     }
- 
+  setTimeout(() => {
+    firstCard.classList.remove('flip');
+    secondCard.classList.remove('flip');
 
+    resetBoard();
+  }, 500);
+}
 
+function resetBoard() {
+  [hasFlippedCard, lockBoard] = [false, false];
+  [firstCard, secondCard] = [null, null];
+}
 
-       
-
- 
-
-
-
-
-
-
-
-
+(function shuffle() {
+  cards.forEach(card => {
+    let randomPos = Math.floor(Math.random() * 12);
+    card.style.order = randomPos;
+  });
+})();
+cards.forEach(card => card.addEventListener('click', flipCard));

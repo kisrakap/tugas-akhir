@@ -1,98 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="KISRA" content="width=device-width, initial-scale=1.0">
-    <title>TEBAK GAMBAR</title>
-    <link rel="stylesheet" href="style.css">
-    
-
+  <meta charset="UTF-8">
+  <title>flip the flag</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body id = "body">
-    <section id="games">
-            <h2> WORD REMEMBER </h2>
-            <div>
-                <span class="moves">0</span> <span class="moves1">Move(s)</span>
-                <div class="restart" onclick="startGame()"><br> 
-                
-            </div>
-        <!-- </div>
-        <div id= "kotak">
-            <div class = "tombol" onclick="kliktombol(1)">
-                <button id="btn1D" class="depan" ></button>
-                <button id="btn1B" class="belakang" ><img src="image/flag-3.png" alt="" width="100%"></button>
-                </div>
-            <div class = "tombol" onclick="kliktombol(2)">
-                <button id="btn2D" class="depan" ></button>
-                <button id="btn2B" class="belakang" ><img src="image/flag-1.png" alt="" width="100%"></button>
-            </div>
 
-            <div class = "tombol" onclick="kliktombol(3)">
-            <button id="btn3D" class="depan" ></button>
-            <button id="btn3B" class="belakang" ><img src="image/flag-4.png" alt="" width="100%"></button>
+<body>
+    <div id="memory_board">
+        <section id="games">
+            <h1> FLIP THE FLAG </h1>
+            <h3>match the flag</h3>
+        </section>
+        <section class="memory-game">
+            <div class="memory-card" data-type="1">
+              <img class="front-face" src="image/flag-1.png" alt="1" />
+              <img class="back-face" src="image/asean-flag.png" alt="asean" />
             </div>
-    
-            <div class = "tombol" onclick="kliktombol(4)">
-            <button id="btn4D" class="depan" ></button>
-            <button id="btn4B" class="belakang" ><img src="image/flag-2.png" alt="" width="100%"></button>
-            </div>
-    
-            <div class = "tombol" onclick="kliktombol(5)">
-            <button id="btn5D" class="depan" ></button>
-            <button id="btn5B" class="belakang" ><img src="image/flag-1.png" alt="" width="100%"></button>
-            </div>
-    
-            <div class = "tombol" onclick="kliktombol(6)">
-            <button id="btn6D" class="depan" ></button>
-            <button id="btn6B" class="belakang" ><img src="image/flag-2.png" alt="" width="100%"></button>
-            </div>
-    
-            <div class = "tombol" onclick="kliktombol(7)">
-            <button id="btn7D" class="depan" ></button>
-            <button id="btn7B" class="belakang" ><img src="image/flag-3.png" alt="" width="100%"></button>
-            </div>
-    
-            <div class = "tombol" onclick="kliktombol(8)">
-            <button id="btn8D" class="depan" ></button>
-            <button id="btn8B" class="belakang" > <img src="image/flag-4.png" alt="" width="100%"></button>
-            </div>
-
-            <div class = "tombol" onclick="kliktombol(9)">
-                <button id="btn9D" class="depan" ></button>
-                <button id="btn9B" class="belakang" ></button>
-            </div>
-
-             <div class = "tombol" onclick="kliktombol(10)">
-                <button id="btn10D" class="depan" ></button>
-                 <button id="btn10B" class="belakang" ></button>
+            <div class="memory-card" data-type="1">
+              <img class="front-face" src="image/flag-1.png" alt="1" />
+              <img class="back-face" src="image/asean-flag.png" alt="asean" />
             </div>
         
-            <div class = "tombol" onclick="kliktombol(11)">
-                <button id="btn11D" class="depan" ></button>
-                <button id="btn11B" class="belakang" ></button>
+            <div class="memory-card" data-type="2">
+              <img class="front-face" src="image/flag-2.png" alt="2" />
+              <img class="back-face" src="image/asean-flag.png" alt="asean" />
             </div>
-
-            <div class = "tombol" onclick="kliktombol(12)">
-                <button id="btn12D" class="depan" ></button>
-                <button id="btn12B" class="belakang" ></button>
+            <div class="memory-card" data-type="2">
+              <img class="front-face" src="image/flag-2.png" alt="2" />
+              <img class="back-face" src="image/asean-flag.png" alt="asean" />
             </div>
-        </div> -->
-
-            <div id= "memory_board"></div>
-    </section>
-    <script src="dom.js"></script>
-    <script>newboard();</script>
+        
+            <div class="memory-card" data-type="3">
+              <img class="front-face" src="image/flag-3.png" alt="3" />
+              <img class="back-face" src="image/asean-flag.png" alt="asean" />
+            </div>
+            <div class="memory-card" data-type="3">
+              <img class="front-face" src="image/flag-3.png" alt="3" />
+              <img class="back-face" src="image/asean-flag.png" alt="asean" />
+            </div>
+        
+            <div class="memory-card" data-type="4">
+              <img class="front-face" src="image/flag-4.png" alt="4" />
+              <img class="back-face" src="image/asean-flag.png" alt="asean" />
+            </div>
+            <div class="memory-card" data-type="4">
+              <img class="front-face" src="image/flag-4.png" alt="4" />
+              <img class="back-face" src="image/asean-flag.png" alt="asean" />
+            </div>
+        
+            <div class="memory-card" data-type="5">
+              <img class="front-face" src="image/flag-5.png" alt="5" />
+              <img class="back-face" src="image/asean-flag.png" alt="asean" />
+            </div>
+            <div class="memory-card" data-type="5">
+              <img class="front-face" src="image/flag-5.png" alt="5" />
+              <img class="back-face" src="image/asean-flag.png" alt="asean" />
+            </div>
+        
+            <div class="memory-card" data-type="6">
+              <img class="front-face" src="image/flag-6.png" alt="6" />
+              <img class="back-face" src="image/asean-flag.png" alt="asean" />
+            </div>
+            <div class="memory-card" data-type="6">
+              <img class="front-face" src="image/flag-6.png" alt="6" />
+              <img class="back-face" src="image/asean-flag.png" alt="asean" />
+            </div>
+          </section>
+    </div>
+  <script src="dom.js"></script>
 </body>
-
 </html>
-
-<!-- dalam body ada kumpulan gambar dan penghitung waktu 
-    dalam kumpulan gambar itu gambar gambarnya masih sama
-    ketika klik gambar penghitung waktu berjalan misalnya (10 detik)
-    ketika klik salahsatu gambar maka muncul gambar keduanya
-    ketika klik gambar acak maka muncul gambar lagi 
-    jika gambarnya sama maka tampilkan gambar tersebut 
-    jika gambarnya berbeda maka kedua gambar tampilkan gambar yang sebelumnya
-    ketika dapat gambar yang sama maka skor bertambah 1
-    ketika waktu habis maka tampilkan skor
-     -->
